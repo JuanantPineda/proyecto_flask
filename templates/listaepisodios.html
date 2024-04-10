@@ -4,7 +4,25 @@
 <div class="content">
   <div class="container_12">
     <div class="grid_9">
-        
+      <h3 class="retro">Tabla de contenidos</h3>
+      <table>
+        <thead>
+            <tr>
+                <th>Episodio</th>
+                <th>Puntuacion</th>
+                <th>Descripcion</th>
+            </tr>
+        </thead>
+        <tbody> 
+              {% for enlace in finalEpisodios -%}
+              <tr>
+              <td class="center">{{ enlace.nombre }}</td>
+              <td>{{ enlace.puntuacion }}</td>
+              <td>Detalle</td>
+              </tr>
+              {% endfor -%}
+        </tbody>
+    </table>
     </div>
   </div>
 </div>

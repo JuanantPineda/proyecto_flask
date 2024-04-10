@@ -17,14 +17,19 @@ def formulario():
 @app.route('/listaepisodios',methods=["POST"])
 def episodios():
     cadena=request.form.get("letra")
+
     episodios = []
+    finalEpisodios = []
 
     for var in datos["_embedded"]["episodes"]:
-        episodios.append(var["name"])
+        diccionario = {"nombre": var["name"], "puntuacion": var["rating"]["average"],"id": var["id"]}
+        episodios.append(diccionario)
 
     for var in episodios:
-        if var.startswith(cadena):
-            print(var)
-    return render_template("listaepisodios.html")
+        if var["nombre"].startswith(cadena):
+            diccionario2 = {"nombre": var["nombre"], "puntuacion": var["puntuacion"], "id":var["id"]}
+            finalEpisodios.append(diccionario2)
+
+    return render_template("listaepisodios.html",finalEpisodios=finalEpisodios)
 
 app.run("0.0.0.0",5000,debug=True)
