@@ -5,6 +5,10 @@
   <div class="container_12">
     <div class="grid_9">
       <h3 class="retro">Tabla de contenidos</h3>
+
+      {% if not finalEpisodios %}
+        <h4 class="retro">No hay Episodios</h4>
+      {% else %}
       <table>
         <thead>
             <tr>
@@ -23,6 +27,8 @@
               {% endfor -%}
         </tbody>
     </table>
+    {% endif %}
+
     </div>
   </div>
 </div>
