@@ -22,14 +22,14 @@
               <tr>
               <td class="center">{{ enlace.nombre }}</td>
               <td>{{ enlace.puntuacion }}</td>
-              <td>Detalle</td>
+              <td><a href="/detalle/{{ enlace.id }}">Detalle</a></td>
               </tr>
               {% endfor -%}
         </tbody>
     </table>
     {% endif %}
 
-    </div>
+  </div>
   </div>
 </div>
 {% endblock %}

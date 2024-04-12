@@ -32,4 +32,9 @@ def episodios():
 
     return render_template("listaepisodios.html",finalEpisodios=finalEpisodios)
 
+@app.route('/detalle/<id>')
+def detalle(id):
+    return render_template("detalle.html",id=id)
+
+
 app.run("0.0.0.0",5000,debug=True)
