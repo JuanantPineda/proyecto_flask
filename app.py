@@ -34,7 +34,12 @@ def episodios():
 
 @app.route('/detalle/<id>')
 def detalle(id):
-    return render_template("detalle.html",id=id)
+    detalles = []
+    for var in datos["_embedded"]["episodes"]:
+        if int(id) == var["id"]:
+            diccionario = {"nombre": var["name"],"temporada": var["season"],"episodio": var["number"],"emision": var["airdate"],"puntuacion": var["rating"]["average"]}
+            detalles.append(diccionario)
+    return render_template("detalle.html",id=id,detalles=detalles)
 
 
 app.run("0.0.0.0",5000,debug=True)
