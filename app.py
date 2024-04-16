@@ -39,8 +39,8 @@ def detalle(id):
         if int(id) == var["id"]:
             diccionario = {"nombre": var["name"],"temporada": var["season"],"episodio": var["number"],"emision": var["airdate"],"puntuacion": var["rating"]["average"]}
             detalles.append(diccionario)
-            return render_template("detalle.html",id=id,detalles=detalles)
-        else:
-            return abort(404)
+            
+    return render_template("detalle.html",id=id,detalles=detalles)
+
 
 app.run("0.0.0.0",5000,debug=True)
